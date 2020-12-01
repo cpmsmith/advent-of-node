@@ -1,6 +1,7 @@
 #!/usr/bin/env deno run --allow-read
+/// <reference path="../deno-runtime.d.ts" />
 
-const input: string = Deno.readTextFileSync("/dev/stdin");
+const input = Deno.readTextFileSync("/dev/stdin");
 const numbers = input.trim().split("\n").map(Number);
 
 let foundA: [number, number] | null = null,
