@@ -1,10 +1,8 @@
 # Advent of Code 2020
 
 ## Setup
-I'm writing this for [deno] in Sublime Text, and I haven't found a Sublime extension for Deno. As such, you need to generate `deno-runtime.d.ts` for the regular TypeScript Language Server to know about Deno's built-ins:
+For the download script, you need to grab your session cookie from your browser, and put it in a `.env` file in the root directory, like so:
 
 ```sh
-deno types >deno-runtime.d.ts
+COOKIE="session=9f6736f426ce421e127fdd59d4a7ad6563ceec469f6736f426ce421e127fdd59d4a7ad6563ceec469f6736f426ce421e"
 ```
-
-[deno]: https://deno.land/
