@@ -14,10 +14,13 @@ then
   exit 1;
 fi
 
+paddedday=`printf "%02d" $1`
+
 year=`date +%Y`;
+# todo: make this send other years' downloads to the practice folder
 if [[ "$2" ]];
 then
   year=$2;
 fi
 
-curl -H "Cookie: $COOKIE" https://adventofcode.com/${year}/day/$1/input >day-$1/input.txt;
+curl -H "Cookie: $COOKIE" https://adventofcode.com/${year}/day/$1/input >day-${paddedday}/input.txt;
