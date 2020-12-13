@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 // my kingdom for a dict comprehension
+// or: should've remembered Object.fromEntries exists
 
 const fs = require('fs');
 const input = fs.readFileSync(0, 'utf8').trim().split("\n");
