@@ -11,7 +11,7 @@ const waits = filtered.map(interval => (Math.ceil(departure / interval) * interv
   minWait = Math.min(...waits);
 const answer1 = filtered[waits.indexOf(minWait)] * minWait;
 
-const offsets = lines.map((l, n) => [l, n]).filter(([l, _n]) => l != "x").sort(([a], [b]) => b-a);
+const offsets = lines.map((l, n) => [l, n]).filter(([l]) => l != "x").sort(([a], [b]) => b-a);
 
 let answer2 = null,
   i = -offsets[0][1],
