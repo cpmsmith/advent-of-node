@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// The original solution didn't need that array at all – this is ~80% easier on memory
+
 const fs = require("fs");
 const turns = fs.readFileSync(0, "utf8").trim().split(",").map(Number);
 
@@ -11,22 +13,27 @@ turns.slice(0, -1).forEach((v, i) => {
   lastTimes.set(v, i);
 });
 
+let turnNumber = turns.length,
+  lastNumber = turns[turns.length - 1];
+
 while (answer1 === null || answer2 === null) {
-  let lastNumber = turns[turns.length - 1];
+  let newNum = null;
   if (lastTimes.has(lastNumber)) {
     const lastTime = lastTimes.get(lastNumber);
-    const newNum = turns.length - (lastTime + 1);
-    turns.push(newNum);
+    newNum = turnNumber - (lastTime + 1);
   } else {
-    turns.push(0);
+    newNum = 0;
   }
-  lastTimes.set(lastNumber, turns.length - 2);
 
-  if (turns.length === 2020) {
-    answer1 = turns[turns.length - 1];
-  } else if (turns.length === 30000000) {
-    answer2 = turns[turns.length - 1];
+  if (turnNumber === 2020) {
+    answer1 = lastNumber;
+  } else if (turnNumber === 30000000) {
+    answer2 = lastNumber;
   }
+
+  lastTimes.set(lastNumber, turnNumber - 1);
+  lastNumber = newNum;
+  turnNumber++;
 }
 
 console.log(`ANSWER 1: ${answer1}`);
