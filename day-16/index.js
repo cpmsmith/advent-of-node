@@ -31,7 +31,7 @@ for (let i = 0; i < otherTickets.length; i++) {
   let valid = true;
   for (let j = 0; j < ticket.rawFields.length; j++) {
     const field = ticket.rawFields[j];
-    if (!rules.some(rule => rule.ranges.some(({ min, max}) => between(field, min, max)))) {
+    if (!rules.some(rule => rule.ranges.some(({ min, max }) => between(field, min, max)))) {
       errorRate += field;
       valid = false;
     }
