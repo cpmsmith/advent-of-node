@@ -9,13 +9,13 @@ then
   exit 1;
 fi
 
-if [[ -z $1 ]];
+day=`date +%-d`
+if [[ "$1" ]];
 then
-  echo "Missing day number";
-  exit 1;
+  day=$1;
 fi
 
-paddedday=`printf "%02d" $1`
+paddedday=`printf "%02d" $day`
 
 year=`date +%Y`;
 # todo: make this send other years' downloads to the practice folder
@@ -24,4 +24,4 @@ then
   year=$2;
 fi
 
-curl -H "Cookie: $COOKIE" https://adventofcode.com/${year}/day/$1/input >${year}/day-${paddedday}/input.txt;
+curl -H "Cookie: $COOKIE" https://adventofcode.com/${year}/day/$day/input >${year}/day-${paddedday}/input.txt;

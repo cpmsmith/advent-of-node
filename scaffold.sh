@@ -3,13 +3,13 @@
 cd "$(dirname "${BASH_SOURCE[0]}")"
 . .env;
 
-if [[ -z $1 ]];
+day=`date +%-d`
+if [[ "$1" ]];
 then
-  echo "Missing day number";
-  exit 1;
+  day=$1;
 fi
 
-paddedday=`printf "%02d" $1`
+paddedday=`printf "%02d" $day`
 
 year=`date +%Y`;
 if [[ "$2" ]];
