@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+cd "$(dirname "${BASH_SOURCE[0]}")"
 . .env;
 
 if [[ -z $COOKIE ]];
@@ -23,4 +24,4 @@ then
   year=$2;
 fi
 
-curl -H "Cookie: $COOKIE" https://adventofcode.com/${year}/day/$1/input >day-${paddedday}/input.txt;
+curl -H "Cookie: $COOKIE" https://adventofcode.com/${year}/day/$1/input >${year}/day-${paddedday}/input.txt;

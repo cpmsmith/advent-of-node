@@ -1,11 +1,7 @@
 #!/usr/bin/env node
+import { stdin, sum } from "../../lib/index.mjs";
 
-const fs = require('fs');
-const input = fs.readFileSync(0, 'utf8').split("\n").map(Number);
-
-function sum(a, b) {
-	return a + b;
-}
+const input = stdin().split("\n").map(Number);
 
 let increases = 0;
 let slidingIncreases = 0;
