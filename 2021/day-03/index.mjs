@@ -5,7 +5,8 @@ const input = u.stdin().trim().split("\n");
 
 const bitLength = input[0].length;
 
-/* It turns out this could've just defaulted to 1 */
+/* It turns out this could've just defaulted to 1. Also idk why I think
+ * the spaceship operator is called a squid operator. */
 function modeSquid(array) {
   let avg = array.reduce(u.sum) / array.length;
   return avg > 0.5 ? 1 : avg < 0.5 ? 0 : null;
