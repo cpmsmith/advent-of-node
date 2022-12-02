@@ -18,7 +18,7 @@ fi
 paddedday=`printf "%02d" $day`
 
 year=`date +%Y`;
-# todo: make this send other years' downloads to the practice folder
+# TODO: make this send other years' downloads to the practice folder
 if [[ "$2" ]];
 then
   year=$2;
