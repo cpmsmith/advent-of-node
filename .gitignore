@@ -4,3 +4,4 @@ input.txt
 sample.txt
 node_modules
 deno-runtime.d.ts
+**/target/
