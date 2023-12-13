@@ -24,11 +24,11 @@ function isPossible(row, groups) {
 				groupNumber++;
 				if (groupNumber >= groups.length) return false;
 				groupLength = 1;
-			}
-			else groupLength++;
+			} else groupLength++;
 			if (groupLength > groups[groupNumber]) return false;
 		} else if (char === ".") {
-			if (groupLength !== null && groupLength < groups[groupNumber]) return false;
+			if (groupLength !== null && groupLength < groups[groupNumber])
+				return false;
 			groupLength = null;
 		} else if (char === "?") {
 			return true;
@@ -42,19 +42,25 @@ function isPossible(row, groups) {
 function allPossibilities(row, groups) {
 	let possibilities = [row];
 	while (possibilities[0].includes("?")) {
-		possibilities = possibilities.flatMap(incrementPossibilities).filter((row) => isPossible(row, groups));
+		possibilities = possibilities
+			.flatMap(incrementPossibilities)
+			.filter((row) => isPossible(row, groups));
 	}
 	return possibilities;
 }
 
-// for (const [row, groups] of input) {
-// 	console.log(row);
-// 	console.log(allPossibilities(row, groups).length);
-// }
-//
-const unfoldedInput = input.map(([row, groups]) => [Array(5).fill(row).join("?"), Array(5).fill(groups).flat()]);
+const unfoldedInput = input.map(([row, groups]) => [
+	Array(5).fill(row).join("?"),
+	Array(5).fill(groups).flat(),
+]);
 
-// console.log(unfoldedInput);
-
-console.log(`Answer 1: ${input.map(([row, groups]) => allPossibilities(row, groups).length).reduce((a, b) => a + b)}`);
-console.log(`Answer 2: ${unfoldedInput.map(([row, groups]) => allPossibilities(row, groups).length).reduce((a, b) => a + b)}`);
+console.log(
+	`Answer 1: ${input
+		.map(([row, groups]) => allPossibilities(row, groups).length)
+		.reduce((a, b) => a + b)}`,
+);
+console.log(
+	`Answer 2: ${unfoldedInput
+		.map(([row, groups]) => allPossibilities(row, groups).length)
+		.reduce((a, b) => a + b)}`,
+);
