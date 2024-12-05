@@ -6,8 +6,8 @@
  
 	"compilerOptions": {
 		"jsx": "react",
-		"lib": [],
+		"target": "esnext",
 		"resolveJsonModule": true,
-		"strict": true
+		"allowJs": true,
 	},
 }
