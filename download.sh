@@ -24,4 +24,4 @@ then
   year=$2;
 fi
 
-curl -H "Cookie: $COOKIE" https://adventofcode.com/${year}/day/$day/input >${year}/day-${paddedday}/input.txt;
+curl --fail -H "Cookie: $COOKIE" https://adventofcode.com/${year}/day/$day/input >${year}/day-${paddedday}/input.txt;
