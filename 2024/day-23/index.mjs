@@ -48,6 +48,11 @@ const trios = Array.from(allComputers.values()).flatMap((computer) => {
 });
 
 /**
+ * Find the maximal cliques (complete subgraphs) in a graph.
+ *
+ * Note: according to Wikipedia there's a more efficient version
+ * involving a "pivot vertex". Might be necessary for larger graphs.
+ *
  * @param {Set<Computer>} r
  * @param {Set<Computer>} p
  * @param {Set<Computer>} x
